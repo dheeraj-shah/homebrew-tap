@@ -2,9 +2,9 @@ class TypefullyCli < Formula
   include Language::Python::Virtualenv
 
   desc "CLI for the Typefully API - draft, schedule, and publish social media posts"
-  homepage "https://github.com/nicedevelopers/typefully-cli"
-  url "https://files.pythonhosted.org/packages/c3/6d/d96bd1a794e8819c9c048cd1eccb86ba06d361ae5b60c82f3277a737775b/typefully_cli-0.1.0.tar.gz"
-  sha256 "c8344f6c527f4e2028604f966409d0368e6f3f626f0fa6cadfce71fbf270ca94"
+  homepage "https://github.com/dheeraj-shah/typefully-cli"
+  url "https://files.pythonhosted.org/packages/37/64/6489cd53044d916b8d794e50ce9abc27e77d6b3bd639b659980591338d0b/typefully_cli-0.2.1.tar.gz"
+  sha256 "69bbf9eaa22d4ab09499a1da8329b8e0385e7d5b1b88c097e75dae5691e28711"
   license "MIT"
 
   depends_on "python@3.13"
