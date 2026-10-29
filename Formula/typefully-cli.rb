@@ -3,8 +3,8 @@ class TypefullyCli < Formula
 
   desc "CLI for the Typefully API - draft, schedule, and publish social media posts"
   homepage "https://github.com/dheeraj-shah/typefully-cli"
-  url "https://files.pythonhosted.org/packages/37/64/6489cd53044d916b8d794e50ce9abc27e77d6b3bd639b659980591338d0b/typefully_cli-0.2.1.tar.gz"
-  sha256 "69bbf9eaa22d4ab09499a1da8329b8e0385e7d5b1b88c097e75dae5691e28711"
+  url "https://files.pythonhosted.org/packages/f2/9d/238f606227b1d697caa6436cfa40c373720cdb5958bd0b844812f83b76b2/typefully_cli-0.3.0.tar.gz"
+  sha256 "fbdc2ff6b2e87388477aba204b94e15828a87fba41fb0f661fe5c10e770e3569"
   license "MIT"
 
   depends_on "python@3.13"
@@ -79,6 +79,11 @@ class TypefullyCli < Formula
   end
 
   test do
-    assert_match "typefully, version", shell_output("#{bin}/typefully --version")
+    assert_match "typefully, version #{version}", shell_output("#{bin}/typefully --version")
+    (testpath/"draft.json").write <<~JSON
+      {"platforms":{"x":{"enabled":true,"posts":[{"text":"Offline Homebrew test"}]}}}
+    JSON
+    output = shell_output("#{bin}/typefully draft-payload create --file draft.json --validate-only")
+    assert_match '"valid": true', output
   end
 end
