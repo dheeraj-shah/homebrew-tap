@@ -3,8 +3,8 @@ class TypefullyCli < Formula
 
   desc "CLI for the Typefully API - draft, schedule, and publish social media posts"
   homepage "https://github.com/dheeraj-shah/typefully-cli"
-  url "https://files.pythonhosted.org/packages/f2/9d/238f606227b1d697caa6436cfa40c373720cdb5958bd0b844812f83b76b2/typefully_cli-0.3.0.tar.gz"
-  sha256 "fbdc2ff6b2e87388477aba204b94e15828a87fba41fb0f661fe5c10e770e3569"
+  url "https://files.pythonhosted.org/packages/08/6c/dc8a680db5f979189a7000f9c04976596fb5d5c87b413fac959918ab9753/typefully_cli-0.5.0.tar.gz"
+  sha256 "d8c071c21e4f81e37b0bf336ca93a1b420f790900b24a5d842bb6bd32606efd6"
   license "MIT"
 
   depends_on "python@3.13"
@@ -79,7 +79,13 @@ class TypefullyCli < Formula
   end
 
   test do
+    ENV["TYPEFULLY_TELEMETRY"] = "0"
     assert_match "typefully, version #{version}", shell_output("#{bin}/typefully --version")
+    status = shell_output("#{bin}/typefully community status --json")
+    assert_match '"enabled": false', status
+    assert_match '"recipient_active": true', status
+    privacy = shell_output("#{bin}/typefully community privacy --json")
+    assert_match "https://typefully-cli-profiles.dheeraj-personal-site.workers.dev", privacy
     (testpath/"draft.json").write <<~JSON
       {"platforms":{"x":{"enabled":true,"posts":[{"text":"Offline Homebrew test"}]}}}
     JSON
