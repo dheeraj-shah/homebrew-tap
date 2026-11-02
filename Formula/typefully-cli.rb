@@ -3,8 +3,8 @@ class TypefullyCli < Formula
 
   desc "CLI for the Typefully API - draft, schedule, and publish social media posts"
   homepage "https://github.com/dheeraj-shah/typefully-cli"
-  url "https://files.pythonhosted.org/packages/f2/9d/238f606227b1d697caa6436cfa40c373720cdb5958bd0b844812f83b76b2/typefully_cli-0.3.0.tar.gz"
-  sha256 "fbdc2ff6b2e87388477aba204b94e15828a87fba41fb0f661fe5c10e770e3569"
+  url "https://files.pythonhosted.org/packages/2b/64/dfb0366be02a84c518da80b3782c619465e3a7c84b36ee1fecf2f56d9ba2/typefully_cli-0.4.0.tar.gz"
+  sha256 "db363bdab3ba1fbe9a4a5f5f62229248dfd2ae75d518d886af73e5117a9ee6ef"
   license "MIT"
 
   depends_on "python@3.13"
